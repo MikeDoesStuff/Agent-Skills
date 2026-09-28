@@ -33,6 +33,18 @@ jg "release resources when a request is cancelled" src/network/
 
 `jg` reads the current working tree, including uncommitted changes. Treat results as evidence about the files currently on disk, not necessarily HEAD.
 
+## Narrow automatically as part of forming the query
+
+Do not wait for a scope error to force narrowing. Handling it silently as normal workflow:
+
+1. **Whole-repository roots must carry default exclusions.** For a `.` or repo-root search:
+   `-g '!**/obj/**' -g '!**/bin/**' -g '!**/node_modules/**' -g '!**/.git/**' -g '!**/dist/**' -g '!**/packages/**'`
+   and add stack-specific exclusions contextually (`target`, `vendor`, `Generated`, migration snapshots) based on the repo's own layout.
+2. **Type by language.** Behavioral queries target source; add source-only globs (`-g '*.cs'`, `-g '*.ts'`).
+3. **Subsystem first, widening later.** Search the most likely subsystem directory, then widen only after the first pass shows the behaviour crosses broadenings.
+4. **Unknown repository shape ⇒ --dry-run first.** If the repo size/shape is unknown, `--dry-run` the intended query to detect discovery size before assuming a whole-repo run is fine.
+5. **A source-byte-limit rejection (`jg: Search exceeds … source bytes`) is an expected steering signal.** Do not surface it as an error to the user — rerun immediately with exclusions or a narrower path and continue as if nothing happened. Report only what the investigation found.
+
 ## Default semantic workflow
 
 For most behavioral investigations:
