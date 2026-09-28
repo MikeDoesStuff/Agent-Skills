@@ -23,6 +23,8 @@ skills/
 
 Copy the skill folder into your agent's skills directory:
 
+PowerShell (primary — Windows developer):
+
 ```powershell
 # OpenCode / shared agents dir
 New-Item -ItemType Directory -Force "$HOME\.agents\skills" | Out-Null
@@ -33,7 +35,7 @@ New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
 Copy-Item -Recurse skills\jg-code-search "$HOME\.codex\skills\"
 ```
 
-Or on bash/zsh:
+Or bash/zsh (secondary):
 
 ```bash
 mkdir -p ~/.agents/skills && cp -r skills/jg-code-search ~/.agents/skills/
