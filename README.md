@@ -16,6 +16,7 @@ skills/
 | Skill | Description |
 | --- | --- |
 | [jg-code-search](skills/jg-code-search/SKILL.md) | Guidance for using the preinstalled `jg` (jevgrep) CLI to search local code repositories semantically by behavior or intent, and exactly for known identifiers. |
+| [council](skills/council/SKILL.md) | Cross-vendor model council for merge and plan gates, decisions, diagnosis, and consultation. |
 
 ## Using these skills
 
@@ -26,20 +27,22 @@ Copy the skill folder into your agent's skills directory:
 PowerShell (primary — Windows developer):
 
 ```powershell
+$skill = "council" # Or another folder under skills/
 # OpenCode / shared agents dir
 New-Item -ItemType Directory -Force "$HOME\.agents\skills" | Out-Null
-Copy-Item -Recurse skills\jg-code-search "$HOME\.agents\skills\"
+Copy-Item -Recurse "skills\$skill" "$HOME\.agents\skills\"
 
 # Codex
 New-Item -ItemType Directory -Force "$HOME\.codex\skills" | Out-Null
-Copy-Item -Recurse skills\jg-code-search "$HOME\.codex\skills\"
+Copy-Item -Recurse "skills\$skill" "$HOME\.codex\skills\"
 ```
 
 Or bash/zsh (secondary):
 
 ```bash
-mkdir -p ~/.agents/skills && cp -r skills/jg-code-search ~/.agents/skills/
-mkdir -p ~/.codex/skills && cp -r skills/jg-code-search ~/.codex/skills/
+skill=council # Or another folder under skills/
+mkdir -p ~/.agents/skills && cp -r "skills/$skill" ~/.agents/skills/
+mkdir -p ~/.codex/skills && cp -r "skills/$skill" ~/.codex/skills/
 ```
 
 ### Install via agent
@@ -47,7 +50,7 @@ mkdir -p ~/.codex/skills && cp -r skills/jg-code-search ~/.codex/skills/
 Agents that support `npx skills` can install directly:
 
 ```bash
-npx skills add github.com/MikeDoesStuff/Agent-Skills --skill jg-code-search
+npx skills add github.com/MikeDoesStuff/Agent-Skills --skill council
 ```
 
 ## Requirements
