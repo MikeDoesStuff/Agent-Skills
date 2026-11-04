@@ -33,7 +33,7 @@ For T3, use `delegate_task` for cross-provider members and whenever per-model op
 
 Omit `target.options` if effort cannot be set. Omit `runtimeMode` when the provider does not support `approval-required`. Check the returned provider instance, model, and options against the selection. Never assume a server fallback preserved effort.
 
-Before delegating to an associate, confirm the chosen backend can confine that child to a sanitized review workspace with no access to the original repository or secret-containing files. A separate worktree alone is insufficient if tracked secret files are copied into it. If the backend cannot enforce this boundary, skip the associate and report why. Do not replace this check with a prompt instruction.
+Before delegating to a Tier 2 associate (Tier 1 is exempt), confirm the chosen backend can confine that child to a sanitized review workspace with no access to the original repository or secret-containing files. A separate worktree alone is insufficient if tracked secret files are copied into it. If the backend cannot enforce this boundary, skip that associate, try the next, and report why. Do not replace this check with a prompt instruction.
 
 - Start round-one member tasks independently and in parallel when the tool supports it.
 - On `waitTimedOut`, use `task_status` roughly once a minute; do not cancel on timeout.

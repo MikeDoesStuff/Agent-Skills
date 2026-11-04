@@ -2,7 +2,7 @@
 
 ## Token budget
 
-- Brief by reference for core members: send diff (`git diff -U10`), file paths, and scope; paste only material they cannot read, such as logs, plan text, and external constraints. Associate briefs refer only to an isolated, sanitized review workspace and must not contain secret-bearing excerpts. Each brief must stand alone because members see no prior history.
+- Brief by reference for core members: send diff (`git diff -U10`), file paths, and scope; paste only material they cannot read, such as logs, plan text, and external constraints. Tier 1 associates are briefed like core members. Tier 2 associate briefs refer only to an isolated, sanitized review workspace and must not contain secret-bearing excerpts. Each brief must stand alone because members see no prior history.
 - Cap responses at 250 words, findings only. A SAFE or APPROVE with no findings takes three lines.
 - Later rounds send deltas: new diff hunks, one-line status per prior finding, and open objections.
 - Cross-examine only conflicting findings and only with members who disagree.
